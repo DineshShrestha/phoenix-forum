@@ -17,6 +17,7 @@ defmodule ForumWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/users", PageController, :users
   end
 
   if Mix.env() in [:dev, :test] do
