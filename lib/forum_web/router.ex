@@ -20,6 +20,11 @@ defmodule ForumWeb.Router do
     get "/users", PageController, :users
   end
 
+  scope "/api", ForumWeb do
+    pipe_through :api
+    resources "/posts", PostController, except: [:new, :edit]
+  end
+
   if Mix.env() in [:dev, :test] do
     import Phoenix.LiveDashboard.Router
 
