@@ -3,16 +3,16 @@ defmodule Forum.Posts.Post do
   import Ecto.Changeset
 
   schema "posts" do
-    field :body, :string
     field :title, :string
-
+    field :body, :string
+    belongs_to :user, Forum.Accounts.User
     timestamps()
   end
 
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:body, :title])
-    |> validate_required([:body, :title])
+    |> cast(attrs, [:body, :title, :user_id])
+    |> validate_required([:body, :title, :user_id])
   end
 end

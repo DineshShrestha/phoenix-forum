@@ -5,7 +5,7 @@ defmodule Forum.Accounts.User do
   schema "users" do
     field :email, :string
     field :name, :string
-
+    has_many :posts, Forum.Posts.Post
     timestamps()
   end
 

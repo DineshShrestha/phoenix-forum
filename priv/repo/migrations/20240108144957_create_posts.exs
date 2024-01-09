@@ -8,6 +8,5 @@ defmodule Forum.Repo.Migrations.CreatePosts do
 
       timestamps()
     end
-
   end
 end

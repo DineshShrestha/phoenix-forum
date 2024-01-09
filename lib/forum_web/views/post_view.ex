@@ -11,8 +11,6 @@ defmodule ForumWeb.PostView do
   end
 
   def render("post.json", %{post: post}) do
-    %{id: post.id,
-      body: post.body,
-      title: post.title}
+    %{id: post.id, body: post.body, title: post.title, user_id: post.user_id}
   end
 end

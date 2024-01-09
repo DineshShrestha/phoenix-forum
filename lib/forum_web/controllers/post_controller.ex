@@ -12,8 +12,10 @@ defmodule ForumWeb.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
-    with {:ok, %Post{} = post} <- Posts.create_post(post_params) do
-      IO.inspect(" from post params: #{post_params}")
+    result = Posts.create_post(post_params)
+
+    with {:ok, %Post{} = post} <- result do
+      IO.inspect({post_params})
 
       conn
       |> put_status(:created)
